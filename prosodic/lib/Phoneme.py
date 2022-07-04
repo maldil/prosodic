@@ -1,5 +1,6 @@
 from ipa import ipa,ipakey,ipa2cmu,formantd
 from entity import entity
+import numpy as np
 class Phoneme(entity):
 	def __init__(self,phons,ipalookup=True):
 		self.feats = {}
@@ -111,7 +112,7 @@ class Phoneme(entity):
 				v2=[float(fs2.get(fx,0)) for fx in f]
 				from scipy.spatial import distance
 				dists+=[distance.euclidean(v1,v2)]
-		return sum(dists)/float(len(dists))
+		return np.mean(dists)
 
 	def distance0(self,other):
 		import math
