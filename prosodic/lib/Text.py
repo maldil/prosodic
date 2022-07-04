@@ -2,6 +2,8 @@
 
 import sys,re,os,codecs,time
 
+import numpy as np
+
 from Stanza import Stanza
 from Line import Line
 from Word import Word
@@ -237,7 +239,7 @@ class Text(entity):
 				#try:
 				if not l2: continue
 
-				avg=sum(l2) / float(len(l2))
+				avg=np.mean(l2)
 				count=sum(l2)
 				chances=len(l2)
 				#except TypeError:
